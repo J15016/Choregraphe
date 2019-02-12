@@ -1,0 +1,31 @@
+import threading # opkg install python-threading
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.tb = False
+
+    def onUnload(self):
+        if( self.tb ):
+            self.tb.cancel()
+            self.tb = False
+
+    def triggerOutput( self, rPeriod = 1 ):
+        self.onUnload() # to clean everything
+        self.timerOutput()
+
+    def startTimer( self, rPeriod = 1 ):
+        if( self.tb ):
+            self.tb.cancel()
+        self.tb = threading.Timer( rPeriod, self.triggerOutput, [rPeriod] )
+        self.tb.start()
+
+    def onInput_onStart(self):
+        self.startTimer( self.getParameter("Timeout (s)") )
+
+    def onInput_onStop(self):
+        bRunning = self.tb
+        self.onUnload()
+        if( bRunning ):
+            self.timerOutput()
