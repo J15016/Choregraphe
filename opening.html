@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<htmls>
+  <head>
+    <meta http-equiv="content-type" charset="utf-8">
+    <style>
+      body{
+        background-color: #effff2;
+      }
+
+      .title h1{
+        -webkit-animation: scrollmask 10s ease 1.5s infinite;
+        -webkit-background-clip: text;
+        background-image: url(fuji.png);
+        color: transparent;
+        font-size: 250px;
+        text-align: center;
+      }
+      .touch p{
+        font-size: 100px;
+        text-align: center;
+      }
+
+      /* 動きをつける */
+      @-webkit-keyframes scrollmask {
+        0% {background-position: 0 0;}
+        100% {background-position: 100% 0;}
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="title">
+      <h1>受付Pepper</h1>
+    </div>
+    <div class="touch">
+      <p>画面に触れて受付スタート<p>
+    </div>
+  </body>
+</html>
