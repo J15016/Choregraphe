@@ -1,0 +1,7 @@
+# /!\ Generated content. Do not edit!
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onInput_onStart(self):
+        self.onStopped("◯◯◯◯◯")
